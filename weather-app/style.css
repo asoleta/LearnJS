@@ -100,3 +100,19 @@ body {
     margin-top: 10px;
     display: none;
 }
+
+.unit {
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+.unit button {
+    background: none;
+    border: none;
+    color: #ebfffc;
+    cursor: pointer;
+    font-size: 14px;
+}
