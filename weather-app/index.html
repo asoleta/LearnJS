@@ -55,7 +55,10 @@ const searchBtn = document.querySelector(".search button");
 
 const weatherIcon = document.querySelector(".weather-icon");
 
+// async functions helps you deal with tasks that take time... retrieving information for the weather
 async function checkWeather(city) {
+    // await keyword tells the function to wait until the fetch operation completes before moving to the next line
+    // fetch makes a request to get data from the API
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
     if (response.status == 404) {
