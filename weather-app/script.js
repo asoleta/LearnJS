@@ -82,7 +82,7 @@ async function checkWeatherMetric(city) {
 
         console.log(data);
 
-        // updates theinformation based on which city was entered
+        // updates the information based on which city was entered
         document.querySelector(".city").innerHTML = data.name;
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
@@ -98,5 +98,13 @@ async function checkWeatherMetric(city) {
 
 // when the search button is pressed, the checkWeather function will run
 searchBtn.addEventListener("click", () => {
-    checkWeatherImperial(searchBox.value); // gets the city name that is written in the input box
+    // if the imperial radio button is checked, it will provide the information in imperial measurements
+    if (imperialRB.checked) {
+        checkWeatherImperial(searchBox.value); // gets the city name that is written in the input box
+    }
+
+    // if the metric radio button is checked, it will provide the information in metric measurements
+    else if (metricRB.checked) {
+        checkWeatherMetric(searchBox.value); // gets the city name that is written in the input box
+    }
 })
