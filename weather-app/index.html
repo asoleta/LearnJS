@@ -16,14 +16,14 @@
 
     <div class="weather">
         <img src="images/rain.png" alt="clouds with rain" class="weather-icon">
-        <h1 class="temp">22°F</h1>
-        <h2 class="city">New York</h2>
+        <h1 class="temp">--°F</h1>
+        <h2 class="city">Search for a City</h2>
         <div class="details">
 
             <div class="col">
                 <img src="images/humidity.png" alt="humid">
                 <div>
-                    <p class="humidity">50%</p>
+                    <p class="humidity">--%</p>
                     <p>Humidity</p>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="col">
                 <img src="images/wind.png" alt="windy">
                 <div>
-                    <p class="wind">15 mph</p>
+                    <p class="wind">-- mph</p>
                     <p>Wind Speed</p>
                 </div>
             </div>
@@ -39,6 +39,35 @@
         </div>
     </div>
 </div>
-    
+
+<script>
+// API key to access weather information
+const apiKey = "919b312088aceae81f45eb22ba0d6df7";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=imperial&q=";
+
+// accesses the search box and search button from the HTML code
+const searchBox = document.querySelector(".search input");
+const searchBtn = document.querySelector(".search button");
+
+async function checkWeather(city) {
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    var data = await response.json();
+
+    console.log(data);
+
+    // updates the information based on which city was entered
+    document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°F";
+    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+    document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
+}
+
+// when the search button is pressed, the checkWeather function will run
+searchBtn.addEventListener("click", () => {
+    checkWeather(searchBox.value); // gets the city name that is written in the input box
+})
+
+</script>
+
 </body>
 </html>
