@@ -19,8 +19,12 @@
     </div>
 
     <div class="unit">
-        <button class="Metric">Metric (°C)</button>
-        <button class="Imperial">Imperial (°F)</button>
+        <form>
+            <input type="radio" id="metric" name="unit" value="metric">
+            <label for="metric">Metric (°C)</label>
+            <input type="radio" id="imperial" name="unit" value="imperial" checked>
+            <label for="imperial">Imperial (°F)</label>
+        </form>
     </div>
 
     <div class="weather">
