@@ -7,6 +7,7 @@
 
 body {
     background-color: #222;
+    padding: 0px 0px 40px 0px;
 }
 
 .card {
@@ -55,7 +56,7 @@ body {
 }
 
 .weather-icon {
-    width: 400px;
+    width: 350px;
     margin-top: 30px;
 }
 
@@ -90,5 +91,4 @@ body {
 
 .humidity, .wind {
     font-size: 30px;
-    margin-top: -6px;
 }
